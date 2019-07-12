@@ -1,0 +1,25 @@
+package testSuits;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+class testCase3 extends Test2 {
+
+	@Test
+	public static void test() throws Exception {
+		Test2 test2 = new TestCase3();
+	}	
+	
+	
+	//method to return the assertion message
+	private static String message () {
+	    return "There is too much chees on the internet";
+	}
+}

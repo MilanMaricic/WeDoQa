@@ -1,0 +1,15 @@
+package seleniumWebDriver;
+
+import org.openqa.selenium.WebDriver;
+
+
+public class Test extends Test1 {
+
+public static void main(String[] args) throws Exception{
+		
+	Test1 test1 = new Test();	
+	test1.execute();
+
+	}
+
+}

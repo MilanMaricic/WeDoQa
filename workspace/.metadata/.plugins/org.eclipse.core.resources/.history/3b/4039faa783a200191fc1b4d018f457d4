@@ -1,0 +1,24 @@
+package seleniumWebDriver;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Test1 {
+
+	public static void execute() {
+		
+	System.setProperty("webdriver.chrome.driver", "./Selenium/chromedriver.exe");
+	WebDriver driver = new ChromeDriver();
+	
+	//navigate to google.com
+	driver.navigate().to("https://www.google.com");
+	
+	//insert input wedoqa.com in search input area
+	WebElement googleSearch = driver.findElement(By.cssSelector("#tsf > div:nth-child(2) > div > div.RNNXgb > div > div.a4bIc > input"));
+	googleSearch.sendKeys("wedoqa.com");
+	
+	
+	}
+}

@@ -1,0 +1,79 @@
+package seleniumWebDriver;
+
+import java.io.File;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Test1 {
+
+	public void execute() throws Exception {
+		
+	System.setProperty("webdriver.chrome.driver", "./Selenium/chromedriver.exe");
+	WebDriver driver = new ChromeDriver();
+	
+	//maximaze the web browser
+	driver.manage().window().maximize();
+	
+	//navigate to google.com URL
+	driver.navigate().to("https://www.google.com");
+	
+	//insert input wedoqa.com in search input area and sent/click Enter to search input value 
+	WebElement googleSearch = driver.findElement(By.cssSelector("#tsf > div:nth-child(2) > div > div.RNNXgb > div > div.a4bIc > input"));
+	googleSearch.sendKeys("wedoqa.com");
+	googleSearch.sendKeys(Keys.ENTER);
+	
+	//navigate to first listed page and click on it
+	driver.findElement(By.cssSelector("#rso > div:nth-child(1) > div > div > div > div > div.r > a:nth-child(1) > h3")).click();
+	driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+	
+	
+	//navigate to Testimonials/References section and swap to Eversave, Simplymap and Pattern publishing
+	WebElement element =driver.findElement(By.cssSelector("#illdy_testimonial-15 > div > div.testimonial-content"));
+	Actions action = new Actions(driver);
+	action.moveToElement(element).perform();
+	
+	//catch the testimonials Pattern publishing
+	WebElement element1= driver.findElement(By.cssSelector("#illdy_testimonial-4 > div > div.testimonial-meta > h6"));
+
+	//use getText() method to grab text from testimonials Pattern publishing and put to String test 
+	String test=element1.getText();
+	
+	//print testimonial to console
+	System.out.println(test);
+	
+		
+	
+	
+	String testemonialSection = driver.findElement(By.cssSelector("#illdy_testimonial-20 > div > div.testimonial-meta > h6")).getText();
+	System.out.println("testemonial deo" +testemonialSection);
+	
+	/*WebElement testemonialSection = driver.findElement(By.id("testimonials"));
+	File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+	System.out.println(scrFile);
+	
+	
+	
+	
+	Actions action = new Actions(driver);
+	action.moveToElement(testemonialSection);
+	action.click();
+	*/
+
+	Thread.sleep(3000);
+	//driver.close();
+	//driver.quit();
+	
+	}
+	
+	//Ovde da napravim metodu koja ce da skrola
+	private void scroll() {}
+}

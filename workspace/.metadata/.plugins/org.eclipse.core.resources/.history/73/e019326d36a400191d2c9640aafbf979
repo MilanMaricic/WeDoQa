@@ -1,0 +1,47 @@
+package seleniumWebDriver;
+
+import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+public class Test2 {
+
+	public static void execute2() throws Exception {
+		System.setProperty("webdriver.chrome.driver", "./Selenium/chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+	
+		//maximaze the web browser
+		driver.manage().window().maximize();
+	
+		//navigate to google.com URL
+		driver.navigate().to("https://www.google.com");
+		
+		//insert input cheese in search input area and click Enter to search for input value 
+		WebElement googleSearch = driver.findElement(By.cssSelector("#tsf > div:nth-child(2) > div > div.RNNXgb > div > div.a4bIc > input"));
+		googleSearch.sendKeys("cheese");
+		googleSearch.sendKeys(Keys.ENTER);
+		
+		//collect the result of search
+		String res=driver.findElement(By.id("resultStats")).getAttribute("value");
+		System.out.println(res);
+		
+		//compare results with 777
+		Assertions.assertEquals(777, res);
+		
+		//if res is > then we print message "There is too much chees on the internet"
+		/*if (res>777) {
+			message();
+		}
+		*/
+	}	
+	
+	
+	//method to return the assertion message
+	private static String message () {
+	    return "There is too much chees on the internet";
+	}
+}

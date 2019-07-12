@@ -1,0 +1,16 @@
+package seleniumWebDriver;
+
+
+
+
+public class Test {
+
+public static void main(String[] args) throws Exception{
+		
+	//Test2 test1 = new Test();	
+	Test2.execute2();
+	Test1.execute();
+
+	}
+
+}
